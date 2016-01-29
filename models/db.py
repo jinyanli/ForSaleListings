@@ -1,5 +1,9 @@
 db = DAL("sqlite://storage.sqlite")
 
+from gluon.tools import Auth
+auth = Auth(db)
+auth.define_tables(username=True)
+
 db.define_table('image',
    Field('title', unique=True),
    Field('file', 'upload'),
